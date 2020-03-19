@@ -14,7 +14,8 @@ clientTag=""
 cmd = "curl -X \"POST\" -H \"Authorization: Basic "+clientTag+"\" -d grant_type=client_credentials https://accounts.spotify.com/api/token"
 auth=(json.loads(subprocess.check_output(cmd).decode("utf-8")))["access_token"]
 
-playlistcode = "4sJvTthbkxgesPLuc0nFf1"
+# URI Playlist code
+playlistcode = ""
 limit = 100
 offset = 0
 cmd = "curl -X \"GET\" \"https://api.spotify.com/v1/playlists/"+playlistcode+"/tracks?market=ES&fields=total%2Citems(track(name%2Cartists))&limit="+str(limit)+"&offset="+str(offset)+"\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" -H \"Authorization: Bearer "+auth+"\""
